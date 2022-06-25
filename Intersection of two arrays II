@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> expected(1001);
+        for(int x:nums1)
+            expected[x]++;
+        vector<int> ans;
+        for(int x:nums2)
+            if(expected[x]>0){
+                ans.push_back(x);
+                expected[x]--;
+            }
+        return ans;
+    }
+};
